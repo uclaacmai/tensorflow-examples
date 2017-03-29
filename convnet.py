@@ -48,7 +48,7 @@ x_image = tf.reshape(x, [-1,28,28,1], name = 'x-image-reshaped') # covert x to a
 with tf.name_scope('Model'):
 
 	W_conv1 = weight_variable([5, 5, 1, 32], name = 'conv1-weights')
-	b_conv1 = bias_variable([32], name='conv1-weights')
+	b_conv1 = bias_variable([32], name='conv1-bias')
 	# LAYER 1: convolution->ReLu -> max pooling -> local response norm
 	with tf.name_scope('conv-layer-1'):
 		h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1, name='conv-relu-1')
