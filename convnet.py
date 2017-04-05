@@ -136,14 +136,13 @@ with tf.Session() as sess:
   			print("epoch: {}".format(i))
   			train_acc = accuracy.eval(feed_dict={x:batch[0], y_: batch[1], keep_prob: 1.0})
   			print("train acc: {}".format(train_acc))
+
   		_, c, summary = sess.run([train_step, cross_entropy, merged_summary_op], 
   			feed_dict = {x: batch[0], y_: batch[1], keep_prob: 1 - dropout_prob})
   		summary_writer.add_summary(summary, i)
 	test_acc = accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0})
 	print("test accuracy {}".format(test_acc))
-	print("Run the command line:\n" \
-          "--> tensorboard --logdir=/tmp/tensorflow_logs " \
-          "\nThen open http://0.0.0.0:6006/ into your web browser")
+	print("run the command tensorboard --logdir=/tmp/tensorflow_logs and then go to localhost:6006 ")
 	sess.close()
 
 
