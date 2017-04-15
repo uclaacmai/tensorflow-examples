@@ -8,7 +8,7 @@ minibatch_size = 50
 lr = 1e-4
 dropout_prob = 0.5
 
-logs_path = '/tmp/tensorflow_logs/convnetlogs'
+logs_path = '/tmp/cnnlog'
 
 # define input variables
 x = tf.placeholder(tf.float32, shape=[None, 784], name='x-input')
@@ -142,7 +142,7 @@ with tf.Session() as sess:
   		summary_writer.add_summary(summary, i)
 	test_acc = accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0})
 	print("test accuracy {}".format(test_acc))
-	print("run the command tensorboard --logdir=/tmp/tensorflow_logs and then go to localhost:6006 ")
+	print("run the command tensorboard --logdir=/tmp/cnnlog and then go to localhost:6006 ")
 	sess.close()
 
 

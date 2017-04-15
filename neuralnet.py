@@ -59,6 +59,8 @@ with tf.Session() as sess:
     for i in range(10000):
         # iterate for 10k epochs and run batch SGD.
         batch = mnist.train.next_batch(100)
+        print(type(batch[0]))
+        exit()
         sess.run(train_step, feed_dict={x: batch[0], y_: batch[1], keep_prob_1: 0.8,
                                         keep_prob_2: 0.5})
         if i % 100 == 0:
